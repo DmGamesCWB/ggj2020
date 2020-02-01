@@ -28,7 +28,6 @@ public class Car : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     //void OnCollisionEnter2D
     {
-        Debug.Log("ENTROU AQUI EM KLINGON");
         if (other.CompareTag("trafficLight"))
         {
             speed = 0f;
