@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trafficLight: {fileID: 802205196}
   car: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef, type: 3}
-  numberOfCars: 1
+  numberOfCars: 3
 --- !u!1 &934757859
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trafficLight: {fileID: 1424178173}
   car: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f, type: 3}
-  numberOfCars: 1
+  numberOfCars: 5
 --- !u!1 &1615711346
 GameObject:
   m_ObjectHideFlags: 0

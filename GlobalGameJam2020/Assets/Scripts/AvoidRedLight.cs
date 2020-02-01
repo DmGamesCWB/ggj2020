@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeepDistance : MonoBehaviour
+public class AvoidRedLight : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,12 +13,12 @@ public class KeepDistance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Car"))
+        if (other.CompareTag("trafficLight"))
         {
             float acc = GetComponentInParent<Car>().acceleration;
             if (acc > 0)
@@ -30,7 +30,7 @@ public class KeepDistance : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Car"))
+        if (other.CompareTag("trafficLight"))
         {
             float acc = GetComponentInParent<Car>().acceleration;
             if (acc < 0)

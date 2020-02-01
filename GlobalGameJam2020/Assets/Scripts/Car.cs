@@ -83,25 +83,6 @@ public class Car : MonoBehaviour
         destroyOutOfBounds();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("trafficLight"))
-        {
-            if (acceleration > 0)
-            {
-                acceleration = -acceleration;
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (acceleration < 0)
-        {
-            acceleration = -acceleration;
-        }
-    }
-
     private void destroyOutOfBounds()
     {
         Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
