@@ -112,6 +112,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &26592724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26592725}
+  m_Layer: 0
+  m_Name: CarGenerators
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26592725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26592724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2616167, y: 10.892153, z: -11.65625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1861832808}
+  - {fileID: 525346211}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200755466
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +302,12 @@ Transform:
   m_Father: {fileID: 555270826}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+--- !u!4 &525346211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297749326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &555270825
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,52 +486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 0
---- !u!1 &832522270
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 832522271}
-  - component: {fileID: 832522272}
-  m_Layer: 0
-  m_Name: GenerateVcars
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &832522271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832522270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.400177, y: 36.491173, z: -11.1026745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832522272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832522270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb0648e7fdd425f4d8972f479c78ebbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trafficLight: {fileID: 802205196}
-  car: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef, type: 3}
-  numberOfCars: 3
 --- !u!1 &934757859
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +643,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.12, y: 11.08}
   m_EdgeRadius: 0
+--- !u!1001 &1297749326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 26592725}
+    m_Modifications:
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4598255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000010430813
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990557, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_Name
+      value: GenerateCars (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: trafficLightForPositionReference
+      value: 
+      objectReference: {fileID: 802205196}
+    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1 &1424178173
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,52 +865,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 1
---- !u!1 &1505662364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1505662365}
-  - component: {fileID: 1505662366}
-  m_Layer: 0
-  m_Name: GenerateHCars
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1505662365
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505662364}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.400177, y: 36.491173, z: -11.1026745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1505662366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505662364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb0648e7fdd425f4d8972f479c78ebbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trafficLight: {fileID: 1424178173}
-  car: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f, type: 3}
-  numberOfCars: 5
 --- !u!1 &1615711346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,3 +1184,89 @@ Transform:
   m_Father: {fileID: 555270826}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1861832808 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101140942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2101140942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 26592725}
+    m_Modifications:
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4598255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990557, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: m_Name
+      value: GenerateCars
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: trafficLightForPositionReference
+      value: 
+      objectReference: {fileID: 1424178173}
+    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
