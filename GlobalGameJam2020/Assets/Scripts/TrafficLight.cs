@@ -6,19 +6,20 @@ public class TrafficLight : MonoBehaviour
 {
     public bool openHorizontal = true;
 
+    private bool isYellow = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Makes sure that only one Traffic Light is Green at a time
         ToggleTrafficLight();
-        //Debug.Log("ENTROU AQUI EM KLINGON "+ this.GetComponentsInChildren<TrafficLightChild>());
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if MouseClick occurred while hovering the traffic light
-        if (Input.GetMouseButtonDown(0))
+        // Check if MouseClick occurred while hovering the traffic light and light is not Yellow
+        if (Input.GetMouseButtonDown(0) && !isYellow)
         {
 
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -31,13 +32,22 @@ public class TrafficLight : MonoBehaviour
             {
                 Debug.Log("Toggling hit collider for " + hit.collider.name);
                 openHorizontal = openHorizontal ? false : true;
-                ToggleTrafficLight();
+
+                isYellow = true;
+                StartCoroutine(WaitForYellowLight());
             }
         }
     }
 
+    IEnumerator WaitForYellowLight()
+    {
+        yield return new WaitForSeconds(1);
+        ToggleTrafficLight();
+    }
+
     private void ToggleTrafficLight()
     {
+        isYellow = false;
         foreach (Transform child in transform)
         {
             bool isHorizontal = child.GetComponent<TrafficLightChild>().isHorizontal;
