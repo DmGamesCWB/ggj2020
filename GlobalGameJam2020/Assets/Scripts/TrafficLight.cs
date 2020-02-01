@@ -31,7 +31,7 @@ public class TrafficLight : MonoBehaviour
             // If a gameObject collides with the Raycast in MousePosition
             if (hit.collider.gameObject.name == this.name)
             {
-                Debug.Log("Toggling hit collider for " + hit.collider.name);
+                //Debug.Log("Toggling hit collider for " + hit.collider.name);
                 openHorizontal = openHorizontal ? false : true;
 
                 isYellow = true;
@@ -61,16 +61,16 @@ public class TrafficLight : MonoBehaviour
         foreach (Transform child in transform)
         {
             bool isHorizontal = child.GetComponent<TrafficLightChild>().isHorizontal;
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " - isHorizontal: " + isHorizontal + ", openHorizontal " + openHorizontal);
+            //Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " - isHorizontal: " + isHorizontal + ", openHorizontal " + openHorizontal);
             if ((isHorizontal && openHorizontal) || (!isHorizontal && !openHorizontal))
             {
-                Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " -  Disable traffic light box collider for object: " + child.name);
+                //Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " -  Disable traffic light box collider for object: " + child.name);
                 child.GetComponent<BoxCollider2D>().enabled = false;
                 child.GetComponent<SpriteRenderer>().sprite = trafficLights[1];
             }
             else
             {
-                Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " - Disable traffic light box collider for object: " + child.name);
+                //Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " - Disable traffic light box collider for object: " + child.name);
                 child.GetComponent<BoxCollider2D>().enabled = true;
                 child.GetComponent<SpriteRenderer>().sprite = trafficLights[3];
             }

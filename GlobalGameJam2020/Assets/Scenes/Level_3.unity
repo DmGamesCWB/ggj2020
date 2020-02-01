@@ -184,12 +184,6 @@ PrefabInstance:
       propertyPath: trafficLightForPositionReference
       value: 
       objectReference: {fileID: 802205196}
-    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
-        type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!4 &272255240 stripped
@@ -1080,12 +1074,6 @@ PrefabInstance:
       propertyPath: trafficLightForPositionReference
       value: 
       objectReference: {fileID: 1424178173}
-    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
-        type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f,
-        type: 3}
     - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
         type: 3}
       propertyPath: numberOfCars

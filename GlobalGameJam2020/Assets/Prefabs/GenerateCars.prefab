@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trafficLightForPositionReference: {fileID: 0}
-  car: {fileID: 0}
-  numberOfCars: 5
+  car: {fileID: 4402734499307668339, guid: fa65feaefbc9c844f9901b46fc5ad25a, type: 3}
+  numberOfCars: 0
   intervalGenerationSeconds: 3
   maxJitterGenerationSeconds: 1
 --- !u!61 &4846640111532990558

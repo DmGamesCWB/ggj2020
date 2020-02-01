@@ -19,11 +19,8 @@ public class GenerateCars : MonoBehaviour
     {
         // Check if road where car needs to be instantiated is horizontal
         isHorizontal = trafficLightForPositionReference.GetComponent<TrafficLightChild>().isHorizontal;
-        Debug.Log(trafficLightForPositionReference.name + " é horizontal:" + isHorizontal);
-        if (numberOfCars > 0)
-        {
-            StartCoroutine(JitterGenerator());
-        }
+
+        StartCoroutine(JitterGenerator());
     }
 
     // Update is called once per frame
@@ -47,6 +44,7 @@ public class GenerateCars : MonoBehaviour
         }
     }
 
+    // Check if there is a car in the summon area
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Car"))
@@ -55,6 +53,7 @@ public class GenerateCars : MonoBehaviour
         }
     }
 
+    // Clears the flag when car leaves the summon area
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Car"))
@@ -76,7 +75,7 @@ public class GenerateCars : MonoBehaviour
             yPosition = GetComponent<BoxCollider2D>().transform.position.y;
             rotation = -180;
             Debug.Log("Entered VTrafficLight " + xPosition + ":" + yPosition);
-        }
+        } 
         else
         {
             xPosition = GetComponent<BoxCollider2D>().transform.position.x;
@@ -85,9 +84,16 @@ public class GenerateCars : MonoBehaviour
             Debug.Log("Entered HTrafficLight " + xPosition + ":" + yPosition);
         }
         
-        Instantiate(car, new Vector3(xPosition, yPosition, 0), Quaternion.Euler(new Vector3(0, 0, rotation)));
+        GameObject _car = Instantiate(car, new Vector3(xPosition, yPosition, 0), Quaternion.Euler(new Vector3(0, 0, rotation)));
+        _car.GetComponent<Car>().isHorizontal = isHorizontal;
+        // Adjust emoji orientation when Vertical
+        if (!isHorizontal)
+        {
+            _car.transform.GetChild(0).Rotate(new Vector3(0,0,1), 90f);
+        }
+
         carsInstantiated++;
-        if (carsInstantiated < numberOfCars)
+        if (carsInstantiated < numberOfCars || numberOfCars == 0)
         {
             StartCoroutine(JitterGenerator());
         }

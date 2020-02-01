@@ -531,11 +531,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.5625
-      objectReference: {fileID: 0}
-    - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -1282,10 +1277,9 @@ PrefabInstance:
       objectReference: {fileID: 1024727554}
     - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
         type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef,
-        type: 3}
+      propertyPath: maxJitterGenerationSeconds
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1 &493612280
@@ -1511,11 +1505,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.7376213
-      objectReference: {fileID: 0}
-    - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.5625
       objectReference: {fileID: 0}
     - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
         type: 3}
@@ -2350,10 +2339,9 @@ PrefabInstance:
       objectReference: {fileID: 1665456046}
     - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
         type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f,
-        type: 3}
+      propertyPath: maxJitterGenerationSeconds
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1 &934757859
@@ -4086,12 +4074,6 @@ PrefabInstance:
       propertyPath: trafficLightForPositionReference
       value: 
       objectReference: {fileID: 802205196}
-    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
-        type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 8730583913557016273, guid: 533a0d19c4142eb4d910c1bb378b13ef,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1 &1742517115
@@ -4604,11 +4586,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.5625
-      objectReference: {fileID: 0}
-    - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -4915,10 +4892,9 @@ PrefabInstance:
       objectReference: {fileID: 1424178173}
     - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
         type: 3}
-      propertyPath: car
-      value: 
-      objectReference: {fileID: 4402734499307668339, guid: 3ad0571e39b75184c8227f159c31376f,
-        type: 3}
+      propertyPath: intervalGenerationSeconds
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1001 &7895035539598412421
@@ -4942,11 +4918,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 17.562378
-      objectReference: {fileID: 0}
-    - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.5625
       objectReference: {fileID: 0}
     - target: {fileID: 7895035538481311435, guid: 1230048c5498f4944aacf0c8f5b56289,
         type: 3}
