@@ -15,9 +15,10 @@ public class Car : MonoBehaviour
     public float score = 1.0f;
     public float secondsStoppedToDowngrade = 5.0f;
     public float secondsMovingToUpgrade = 10.0f;
-    public float scoreStepSize = .2f;
+    private int driverEmojiIndex = 0;
     public float timeStopped = 0.0f;
     public float timeMoving = 0.0f;
+    public Sprite[] driverEmojis;
 
     public float bottonOffset = 50f;
     public float rightOffset = 120f;
@@ -51,14 +52,20 @@ public class Car : MonoBehaviour
         // Check If stopped/moved for time enough to change score
         if(timeStopped > secondsStoppedToDowngrade)
         {
-            score = Mathf.Max(0, score - scoreStepSize);
+            score = Mathf.Max(0, score - (score/ driverEmojis.Length));
+            driverEmojiIndex = Mathf.Min(driverEmojiIndex + 1, driverEmojis.Length - 1);
             timeStopped = 0;
         }
         if(timeMoving > secondsMovingToUpgrade)
         {
-            score = Mathf.Min(score + scoreStepSize, 1.0f);
+            score = Mathf.Min(score + (score / driverEmojis.Length), 1.0f);
+            driverEmojiIndex = Mathf.Max(driverEmojiIndex - 1, 0);
             timeMoving = 0;
         }
+
+        // Update Driver Emoji
+        foreach (Transform child in transform)
+            child.GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
         
         // Actually moves the car
         if (isHorizontal)
