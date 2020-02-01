@@ -7,6 +7,7 @@ public class Road : MonoBehaviour
     public int startSpriteIndex = 0;
     public float minTime = 1.0f, maxTime = 2.0f;
     public Sprite[] roadSprites;
+    public bool enableRandomRoadBlock = true;
 
     private float randomTime;
     private int currentSpriteIndex;
@@ -20,16 +21,19 @@ public class Road : MonoBehaviour
         SetRandomTime();
         // Apply initial road state
         ApplyNextRoadState();
-        // Schedule first state change
-        SetNextRoadState();
-        StartCoroutine(ApplyNextRoadStateWithinRandomTime());
+        if (enableRandomRoadBlock)
+        {
+            // Schedule first state change
+            SetNextRoadState();
+            StartCoroutine(ApplyNextRoadStateWithinRandomTime());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if MouseClick occurred while hovering a non-broken road
-        if (currentSpriteIndex != 0 && Input.GetMouseButtonDown(0))
+        // Check if MouseClick occurred while hovering a non-broken road with random road blocks enabled
+        if (enableRandomRoadBlock && currentSpriteIndex != 0 && Input.GetMouseButtonDown(0))
         {
             Debug.Log(gameObject.name + " - Road got clicked");
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -38,7 +42,7 @@ public class Road : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider.gameObject.CompareTag("roadBlock"))
+            if (hit.collider.gameObject.name == this.name)                
             {
                 // Start road repair
                 SetNextRoadState();

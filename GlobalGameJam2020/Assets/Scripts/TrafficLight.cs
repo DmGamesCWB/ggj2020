@@ -29,7 +29,7 @@ public class TrafficLight : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider.gameObject.CompareTag("toggleInput"))
+            if (hit.collider.gameObject.name == this.name)
             {
                 Debug.Log("Toggling hit collider for " + hit.collider.name);
                 openHorizontal = openHorizontal ? false : true;
