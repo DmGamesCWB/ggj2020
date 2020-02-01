@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    public float speed = 1.0f;
+    public float initialSpeed = 15.0f;
     public bool isHorizontal = true;
+
+    private float speed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = initialSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
         if (isHorizontal)
         {
@@ -32,5 +34,10 @@ public class Car : MonoBehaviour
         {
             speed = 0f;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        speed = initialSpeed;
     }
 }
