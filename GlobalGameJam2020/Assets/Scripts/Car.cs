@@ -106,7 +106,6 @@ public class Car : MonoBehaviour
 
         if (carPos.y < -bottonOffset || carPos.x > rightOffset)
         {
-            Debug.Log("POSX:" + carPos.x + " POSY:" + carPos.y);
             Destroy(this.gameObject);
         }
 
