@@ -583,7 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384861b9c2d61ae4294c03bda91be0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 15
+  maxSpeed: 15
+  acceleration: 0.5
   isHorizontal: 1
 --- !u!212 &2026337023
 SpriteRenderer:
@@ -773,7 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384861b9c2d61ae4294c03bda91be0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 15
+  maxSpeed: 15
+  acceleration: 0.5
   isHorizontal: 0
 --- !u!212 &2053515902
 SpriteRenderer:
