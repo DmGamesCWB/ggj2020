@@ -65,8 +65,12 @@ public class Car : MonoBehaviour
 
         // Update Driver Emoji
         foreach (Transform child in transform)
-            child.GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
-        
+        {
+            if (child.GetComponent<SpriteRenderer>())
+            {
+                child.GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
+            }
+        }
         // Actually moves the car
         if (isHorizontal)
         {
@@ -88,7 +92,6 @@ public class Car : MonoBehaviour
                 acceleration = -acceleration;
             }
         }
-
     }
 
     void OnTriggerExit2D(Collider2D other)
