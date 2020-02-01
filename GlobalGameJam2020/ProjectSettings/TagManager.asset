@@ -8,6 +8,7 @@ TagManager:
   - toggleInput
   - Car
   - roadBlock
+  - ScoreCar
   layers:
   - Default
   - TransparentFX
