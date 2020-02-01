@@ -52,13 +52,13 @@ public class Car : MonoBehaviour
         // Check If stopped/moved for time enough to change score
         if(timeStopped > secondsStoppedToDowngrade)
         {
-            score = Mathf.Max(0, score - (score/ driverEmojis.Length));
+            score = Mathf.Max(0, score - (1.0f / driverEmojis.Length));
             driverEmojiIndex = Mathf.Min(driverEmojiIndex + 1, driverEmojis.Length - 1);
             timeStopped = 0;
         }
         if(timeMoving > secondsMovingToUpgrade)
         {
-            score = Mathf.Min(score + (score / driverEmojis.Length), 1.0f);
+            score = Mathf.Min(score + (1.0f / driverEmojis.Length), 1.0f);
             driverEmojiIndex = Mathf.Max(driverEmojiIndex - 1, 0);
             timeMoving = 0;
         }
