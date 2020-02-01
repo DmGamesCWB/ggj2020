@@ -6,6 +6,7 @@ TagManager:
   tags:
   - trafficLight
   - toggleInput
+  - Car
   layers:
   - Default
   - TransparentFX
