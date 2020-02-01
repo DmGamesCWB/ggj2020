@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public float score = 0;
-    //List<KeyValuePair<string, float>> scoreList = new List<KeyValuePair<string, float>>();
-    Dictionary<string, float> scoreDict = new Dictionary<string, float>();
+    public Dictionary<int, float> scoreDict = new Dictionary<int, float>();
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        fillScore();
     }
 
     private void fillScore()
     {
-        GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Car");
+        GameObject[] allObjects = GameObject.FindGameObjectsWithTag("ScoreCar");
         foreach (GameObject car in allObjects)
         {
-            //AddScore(car.GetComponent<>);
+            Debug.Log("ADD Score:" + car.GetInstanceID());
+            AddScore(car.GetInstanceID(), car.GetComponent<Car>().score);
         }
+
     }
 
-    public void AddScore(string name, float value)
+    public void AddScore(int id, float value)
     {
-        scoreDict.Add(name, value);
-       
+        if (scoreDict.ContainsKey(id))
+        {
+            Debug.Log("Contains Key. Update:" + id + "-->" + value);
+            scoreDict[id] = value;
+        }
+        else
+        {
+            Debug.Log("NOT Contains Key. ADD:" + id + "-->"+ value);
+            scoreDict.Add(id, value);
+        }
     }
 }

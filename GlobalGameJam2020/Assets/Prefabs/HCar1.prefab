@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 7612821893599945815}
   m_Layer: 0
   m_Name: HCar1
-  m_TagString: Car
+  m_TagString: ScoreCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
