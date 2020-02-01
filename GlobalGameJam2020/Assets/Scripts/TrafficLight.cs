@@ -5,7 +5,8 @@ using UnityEngine;
 public class TrafficLight : MonoBehaviour
 {
     public bool openHorizontal = true;
-
+    public Sprite[] trafficLights;
+    
     private bool isYellow = true;
 
     // Start is called before the first frame update
@@ -34,6 +35,15 @@ public class TrafficLight : MonoBehaviour
                 openHorizontal = openHorizontal ? false : true;
 
                 isYellow = true;
+                foreach (Transform child in transform)
+                {
+                    bool isHorizontal = child.GetComponent<TrafficLightChild>().isHorizontal;
+                    if (isHorizontal != openHorizontal)
+                    {
+                        child.GetComponent<SpriteRenderer>().sprite = trafficLights[2];
+                    }
+                }
+                    
                 StartCoroutine(WaitForYellowLight());
             }
         }
@@ -56,11 +66,13 @@ public class TrafficLight : MonoBehaviour
             {
                 Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " -  Disable traffic light box collider for object: " + child.name);
                 child.GetComponent<BoxCollider2D>().enabled = false;
+                child.GetComponent<SpriteRenderer>().sprite = trafficLights[1];
             }
             else
             {
                 Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " - Disable traffic light box collider for object: " + child.name);
                 child.GetComponent<BoxCollider2D>().enabled = true;
+                child.GetComponent<SpriteRenderer>().sprite = trafficLights[3];
             }
         }
     }
