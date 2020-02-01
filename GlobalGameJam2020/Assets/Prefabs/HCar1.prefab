@@ -97,6 +97,14 @@ MonoBehaviour:
   maxSpeed: 15
   acceleration: 0.5
   isHorizontal: 1
+  score: 1
+  secondsStoppedToDowngrade: 5
+  secondsMovingToUpgrade: 10
+  scoreStepSize: 0.2
+  timeStopped: 0
+  timeMoving: 0
+  bottonOffset: 60
+  rightOffset: 80
 --- !u!61 &4402734499307668111
 BoxCollider2D:
   m_ObjectHideFlags: 0

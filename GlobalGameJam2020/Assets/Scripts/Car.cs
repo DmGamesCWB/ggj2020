@@ -18,7 +18,10 @@ public class Car : MonoBehaviour
     public float scoreStepSize = .2f;
     public float timeStopped = 0.0f;
     public float timeMoving = 0.0f;
-    
+
+    public float bottonOffset = 50f;
+    public float rightOffset = 120f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class Car : MonoBehaviour
     }
 
 // Update is called once per frame
-void Update()
+    void Update()
     {
         float prevSpeed = speed;
         speed += acceleration;
@@ -66,6 +69,7 @@ void Update()
         {
             this.transform.position += new Vector3(0, -speed*Time.deltaTime, 0);
         }
+        destroyOutOfBounds();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -86,5 +90,18 @@ void Update()
         {
             acceleration = -acceleration;
         }
+    }
+
+    private void destroyOutOfBounds()
+    {
+        Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Vector3 carPos = transform.position;
+
+        if (carPos.y < -bottonOffset || carPos.x > rightOffset)
+        {
+            Debug.Log("POSX:" + carPos.x + " POSY:" + carPos.y);
+            Destroy(this.gameObject);
+        }
+
     }
 }
