@@ -38,7 +38,7 @@ public class Road : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider != null)
+            if (hit.collider.gameObject.CompareTag("roadBlock"))
             {
                 // Start road repair
                 SetNextRoadState();
