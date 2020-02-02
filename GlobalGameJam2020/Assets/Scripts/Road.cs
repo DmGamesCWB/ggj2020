@@ -5,10 +5,11 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
     public int startSpriteIndex = 0;
-    public float minTime = 1.0f, maxTime = 2.0f;
+    public float minTimeNextDamage = 10.0f, maxTimeNextDamage = 20.0f;
+    public float timeToRepair = 10.0f;
     public bool enableRandomDamage = true;
 
-    private float randomTime;
+    private float elapsedHealingTime;
     private bool isRoadDamaged;
     private bool isRoadBlocked;
 
@@ -17,13 +18,12 @@ public class Road : MonoBehaviour
     {
         isRoadDamaged = false;
         isRoadBlocked = false;
-        SetRandomTime();
+
         // Apply initial road state
-        ApplyNextRoadState();
+        ApplyRoadState();
         if (enableRandomDamage)
         {
             // Schedule first state change
-            SetNextRoadState();
             StartCoroutine(ApplyNextRoadStateWithinRandomTime());
         }
     }
@@ -34,7 +34,6 @@ public class Road : MonoBehaviour
         // Check if MouseClick occurred while hovering a non-broken road with random road blocks enabled
         if (enableRandomDamage && isRoadDamaged && Input.GetMouseButtonDown(0))
         {
-            
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -46,10 +45,20 @@ public class Road : MonoBehaviour
             {
                 // Start road repair
                 SetNextRoadState();
-                ApplyNextRoadState();
                 // And schedule a time for the road repair to be finished
-                SetNextRoadState();
                 StartCoroutine(ApplyNextRoadStateWithinRandomTime());
+            }
+        }
+
+        // Check if road is block and increase elapsed healing
+        if (isRoadBlocked)
+        {
+            elapsedHealingTime += Time.deltaTime;
+            if(elapsedHealingTime > timeToRepair)
+            {
+                elapsedHealingTime = 0;
+                SetNextRoadState();
+                ApplyNextRoadStateWithinRandomTime();
             }
         }
     }
@@ -74,31 +83,26 @@ public class Road : MonoBehaviour
             isRoadDamaged = false;
             isRoadBlocked = false;
         }
+        ApplyRoadState();
     }
 
-    void ApplyNextRoadState()
+    void ApplyRoadState()
     {
         // Either road damage or road block should be 
         //Debug.Log(gameObject.name + " Applying state");
-        transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
-        //transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
-        //transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
+        //transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
+        transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
+        transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
 
         //transform.GetChild(1).gameObject.SetActive(isRoadBlocked);
         transform.GetChild(1).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
         transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
     }
 
-
     IEnumerator ApplyNextRoadStateWithinRandomTime()
     {
         //Debug.Log(gameObject.name + " - Next state change will take " + randomTime);
-        yield return new WaitForSeconds(randomTime);
-        this.ApplyNextRoadState();
-    }
-
-    private void SetRandomTime()
-    {
-        randomTime = Random.Range(minTime, maxTime);
+        yield return new WaitForSeconds(Random.Range(minTimeNextDamage, maxTimeNextDamage));
+        SetNextRoadState();
     }
 }

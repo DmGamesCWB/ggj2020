@@ -35,17 +35,26 @@ public class Car : MonoBehaviour
     void Update()
     {
         // If car is broken, it can not accelerate
-        if (isBroken && Input.GetMouseButtonDown(0))
+        if (isBroken)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-            // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID())
+            if (acceleration > 0)
             {
-                FixCar();
+                acceleration = -acceleration;
+            }
+
+            // Check if it can be fixed
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+                // If a gameObject collides with the Raycast in MousePosition
+                if (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID())
+                {
+                    FixCar();
+                }
             }
         }
 
@@ -64,6 +73,7 @@ public class Car : MonoBehaviour
         {
             timeMoving += Time.deltaTime;
             // timeStopped does not come to zero right after you start moving...
+            // What? Do you think it is that easy to recover from a bad humor??
             timeStopped = Mathf.Max(0, timeStopped - Time.deltaTime);
         }
         
@@ -99,10 +109,7 @@ public class Car : MonoBehaviour
     public void BreakCar()
     {
         isBroken = true;
-        if (acceleration > 0)
-        {
-            acceleration = -acceleration;
-        }
+        score /= 2; // Best way to ruin your day...
         transform.GetChild(3).gameObject.SetActive(true);
     }
 

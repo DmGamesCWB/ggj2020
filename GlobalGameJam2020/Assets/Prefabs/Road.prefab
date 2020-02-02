@@ -201,9 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpriteIndex: 0
-  minTime: 1
-  maxTime: 3
-  enableRandomDamage: 1
+  minTimeNextDamage: 10
+  maxTimeNextDamage: 20
+  timeToRepair: 5
+  enableRandomDamage: 0
 --- !u!1 &9143206371492230781
 GameObject:
   m_ObjectHideFlags: 0
