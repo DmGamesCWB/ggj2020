@@ -6,7 +6,6 @@ public class Road : MonoBehaviour
 {
     public int startSpriteIndex = 0;
     public float minTime = 1.0f, maxTime = 2.0f;
-    public Sprite[] roadSprites;
     public bool enableRandomDamage = true;
 
     private float randomTime;
@@ -40,9 +39,10 @@ public class Road : MonoBehaviour
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
+            //Debug.Log(hit.collider.transform.name + " / " + transform.GetChild(0).name + " - Road got clicked");
+            //Debug.Log(hit.collider.transform.GetInstanceID() + " / " + transform.GetChild(0).GetInstanceID() + " - Road got clicked");
             // If a gameObject collides with the Raycast in MousePosition
-            if ((hit.collider.gameObject.name == transform.GetChild(0).gameObject.name))                
+            if ((hit.collider.transform.GetInstanceID() == transform.GetChild(0).GetInstanceID()))                
             {
                 Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
                 // Start road repair
@@ -59,19 +59,19 @@ public class Road : MonoBehaviour
     {
         if (!isRoadDamaged && !isRoadBlocked)
         {
-            Debug.Log(gameObject.name + " - Next state is damaged");
+            //Debug.Log(gameObject.name + " - Next state is damaged");
             isRoadDamaged = true;
             isRoadBlocked = false;
         }
         else if (isRoadDamaged && !isRoadBlocked)
         {
-            Debug.Log(gameObject.name + " - Next state is blocked");
-            isRoadDamaged = true;
-            isRoadBlocked = false;
+            //Debug.Log(gameObject.name + " - Next state is blocked");
+            isRoadDamaged = false;
+            isRoadBlocked = true;
         }
         else
         {
-            Debug.Log(gameObject.name + " - Next state is good");
+            //Debug.Log(gameObject.name + " - Next state is good");
             isRoadDamaged = false;
             isRoadBlocked = false;
         }
@@ -80,7 +80,7 @@ public class Road : MonoBehaviour
     void ApplyNextRoadState()
     {
         // Either road damage or road block should be 
-        Debug.Log(gameObject.name + " Applying state");
+        //Debug.Log(gameObject.name + " Applying state");
         transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
         transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
         transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
@@ -101,6 +101,5 @@ public class Road : MonoBehaviour
     private void SetRandomTime()
     {
         randomTime = Random.Range(minTime, maxTime);
-        randomTime = 0;
     }
 }
