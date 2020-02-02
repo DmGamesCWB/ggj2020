@@ -7,21 +7,21 @@ public class Road : MonoBehaviour
     public int startSpriteIndex = 0;
     public float minTime = 1.0f, maxTime = 2.0f;
     public Sprite[] roadSprites;
-    public bool enableRandomRoadBlock = true;
+    public bool enableRandomDamage = true;
 
     private float randomTime;
-    private int currentSpriteIndex;
+    private bool isRoadDamaged;
     private bool isRoadBlocked;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentSpriteIndex = startSpriteIndex;
+        isRoadDamaged = false;
         isRoadBlocked = false;
         SetRandomTime();
         // Apply initial road state
         ApplyNextRoadState();
-        if (enableRandomRoadBlock)
+        if (enableRandomDamage)
         {
             // Schedule first state change
             SetNextRoadState();
@@ -33,18 +33,18 @@ public class Road : MonoBehaviour
     void Update()
     {
         // Check if MouseClick occurred while hovering a non-broken road with random road blocks enabled
-        if (enableRandomRoadBlock && currentSpriteIndex != 0 && Input.GetMouseButtonDown(0))
+        if (enableRandomDamage && isRoadDamaged && Input.GetMouseButtonDown(0))
         {
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            //Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
+            Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
             // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider.gameObject.name == this.name)                
+            if ((hit.collider.gameObject.name == transform.GetChild(0).gameObject.name))                
             {
-                //Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
+                Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
                 // Start road repair
                 SetNextRoadState();
                 ApplyNextRoadState();
@@ -57,30 +57,43 @@ public class Road : MonoBehaviour
 
     void SetNextRoadState()
     {
-        // sets next sprite index and also updates isRoadBlocked flag
-        currentSpriteIndex++;
-        if (currentSpriteIndex >= roadSprites.Length)
+        if (!isRoadDamaged && !isRoadBlocked)
         {
-            currentSpriteIndex = 0;
+            Debug.Log(gameObject.name + " - Next state is damaged");
+            isRoadDamaged = true;
+            isRoadBlocked = false;
+        }
+        else if (isRoadDamaged && !isRoadBlocked)
+        {
+            Debug.Log(gameObject.name + " - Next state is blocked");
+            isRoadDamaged = true;
             isRoadBlocked = false;
         }
         else
         {
-            isRoadBlocked = true;
+            Debug.Log(gameObject.name + " - Next state is good");
+            isRoadDamaged = false;
+            isRoadBlocked = false;
         }
-        Debug.Log(gameObject.name + " - Next road state index " + currentSpriteIndex);
     }
 
     void ApplyNextRoadState()
     {
-        this.GetComponent<SpriteRenderer>().sprite = roadSprites[currentSpriteIndex];
-        this.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
+        // Either road damage or road block should be 
+        Debug.Log(gameObject.name + " Applying state");
+        transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
+        transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
+        transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
+
+        transform.GetChild(1).gameObject.SetActive(isRoadBlocked);
+        transform.GetChild(1).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
+        transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
     }
 
 
     IEnumerator ApplyNextRoadStateWithinRandomTime()
     {
-        Debug.Log(gameObject.name + " - Next state change will take " + randomTime);
+        //Debug.Log(gameObject.name + " - Next state change will take " + randomTime);
         yield return new WaitForSeconds(randomTime);
         this.ApplyNextRoadState();
     }
@@ -88,5 +101,6 @@ public class Road : MonoBehaviour
     private void SetRandomTime()
     {
         randomTime = Random.Range(minTime, maxTime);
+        randomTime = 0;
     }
 }

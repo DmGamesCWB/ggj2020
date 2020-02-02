@@ -9,6 +9,7 @@ TagManager:
   - Car
   - roadBlock
   - ScoreCar
+  - roadDamage
   layers:
   - Default
   - TransparentFX
