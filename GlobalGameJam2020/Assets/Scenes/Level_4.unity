@@ -912,7 +912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280981786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.871048, y: 13.425207, z: 0.015625}
+  m_LocalPosition: {x: 41.871048, y: -28.6, z: 0.015625}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1442021013}
@@ -1294,6 +1294,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 566851483044312246, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
+        type: 3}
+      propertyPath: scoreIcon
+      value: 
+      objectReference: {fileID: 1491324849}
     - target: {fileID: 566851483044312247, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3462,6 +3467,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1491324849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6212339465351502596, guid: d71cbd449591a6f4797488028b5ee9b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024253551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1505662365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4846640111532990556, guid: 800808497ea116349bdccabc72eff471,

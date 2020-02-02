@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212339465955625706, guid: d71cbd449591a6f4797488028b5ee9b7,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1615711348}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71cbd449591a6f4797488028b5ee9b7, type: 3}
 --- !u!1 &555270825
@@ -505,6 +510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 566851483044312246, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
+        type: 3}
+      propertyPath: scoreIcon
+      value: 
+      objectReference: {fileID: 1625516240}
     - target: {fileID: 566851483044312247, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1108,6 +1118,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1625516240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6212339465351502596, guid: d71cbd449591a6f4797488028b5ee9b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 474916484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1665456046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7895035538312933752, guid: 1230048c5498f4944aacf0c8f5b56289,
