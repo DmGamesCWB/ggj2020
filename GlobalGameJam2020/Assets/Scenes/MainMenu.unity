@@ -1776,14 +1776,56 @@ MonoBehaviour:
     source: {fileID: 0}
   FXSounds:
   - name: 2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: f36c625954bb8384e88a9db633763cfd, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0
+    volume: 0.108
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
   - name: 3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1abfe53115cc94b45b8b94f1466bd59a, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.157
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 6
+    clip: {fileID: 8300000, guid: eada789df7f39e4468bf5baebb650b6f, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.137
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 5
+    clip: {fileID: 8300000, guid: 1d80be49a312ffe4a88bdb6df3992d8d, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.147
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 8
+    clip: {fileID: 8300000, guid: 5d5832770282fa24aa11f3a994b3f5ba, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.078
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 9
+    clip: {fileID: 8300000, guid: e1493a8b1d51c1746a9b3c473f4bd164, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.069
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 10
+    clip: {fileID: 8300000, guid: 57f3092285388d741bc48998a48f25c2, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.108
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 11
+    clip: {fileID: 8300000, guid: a3546ff5619c0ae44a3ea9e43ddbe649, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0
     pitch: 0.1

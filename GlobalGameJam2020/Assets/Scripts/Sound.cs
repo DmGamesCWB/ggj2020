@@ -11,8 +11,13 @@ public class Sound
         CarHonkSad,
         CarHonkAngry,
         BikeHorn,
-        TrafficJam1,
-        TrafficJam
+        TrafficJam,
+        Cursing,
+        CursingKlingon,
+        HammeringShort,
+        HammeringLong,
+        RepairingShort,
+        RepairingLong
     }
 
     public SoundTypes name;
