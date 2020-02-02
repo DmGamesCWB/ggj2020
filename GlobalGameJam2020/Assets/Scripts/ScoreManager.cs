@@ -115,16 +115,20 @@ public class ScoreManager : MonoBehaviour
         if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextLevelIndex);
+            AudioManager.instance.PlayFxSound(Sound.SoundTypes.Applause);
         }
         else
         {
             SceneManager.LoadScene("MainMenu");
         }
+        AudioManager.instance.StopAllFxSound();
     }
 
     IEnumerator ReloadLevel()
     {
+        AudioManager.instance.PlayFxSound(Sound.SoundTypes.Boo);
         yield return new WaitForSeconds(theEndSplashScreenSec);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        AudioManager.instance.StopAllFxSound();
     }
 }

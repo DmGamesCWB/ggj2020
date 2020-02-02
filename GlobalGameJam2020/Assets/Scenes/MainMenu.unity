@@ -1778,14 +1778,14 @@ MonoBehaviour:
   - name: 2
     clip: {fileID: 8300000, guid: f36c625954bb8384e88a9db633763cfd, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.324
+    volume: 0.236
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 3
     clip: {fileID: 8300000, guid: 1abfe53115cc94b45b8b94f1466bd59a, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.382
+    volume: 0.245
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1799,40 +1799,54 @@ MonoBehaviour:
   - name: 5
     clip: {fileID: 8300000, guid: 1d80be49a312ffe4a88bdb6df3992d8d, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.147
+    volume: 0.206
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 8
     clip: {fileID: 8300000, guid: 5d5832770282fa24aa11f3a994b3f5ba, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.078
+    volume: 0.176
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 9
     clip: {fileID: 8300000, guid: e1493a8b1d51c1746a9b3c473f4bd164, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.069
+    volume: 0.206
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 10
     clip: {fileID: 8300000, guid: 57f3092285388d741bc48998a48f25c2, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.108
+    volume: 0.177
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 11
     clip: {fileID: 8300000, guid: a3546ff5619c0ae44a3ea9e43ddbe649, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0
+    volume: 0.167
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 4
     clip: {fileID: 8300000, guid: c99ccdc4fb5f06546986705234d6d712, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.127
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 12
+    clip: {fileID: 8300000, guid: 3220cb89fc8efb14fbfdce04df33781a, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.166
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 13
+    clip: {fileID: 8300000, guid: 22ab90d15c5877f4b8dec881ebff2c1a, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0.127
     pitch: 1
@@ -3451,8 +3465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 113.399994, y: 0.000030517578}
-  m_SizeDelta: {x: -226.8, y: -38.3}
+  m_AnchoredPosition: {x: 95, y: 0.000030518}
+  m_SizeDelta: {x: -190, y: -38.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664293779
 MonoBehaviour:
@@ -3507,7 +3521,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3786,7 +3800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.3, y: 309}
+  m_AnchoredPosition: {x: 8.3, y: 298}
   m_SizeDelta: {x: 623.2, y: -377.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1878477514

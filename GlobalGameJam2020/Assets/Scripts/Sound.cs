@@ -17,7 +17,9 @@ public class Sound
         HammeringShort,
         HammeringLong,
         RepairingShort,
-        RepairingLong
+        RepairingLong,
+        Boo,
+        Applause
     }
 
     public SoundTypes name;
