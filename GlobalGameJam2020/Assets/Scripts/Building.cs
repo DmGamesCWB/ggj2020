@@ -4,20 +4,41 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public bool isDamaged = true;
+    public float minTimeNextDamage = 10.0f, maxTimeNextDamage = 20.0f;
+    public float timeToRepair = 10.0f;
+    public bool enableRandomDamage = true;
     public Sprite[] buildingSprites;
+
+    public enum DebrisPosition { North, South, West, East };
+    public DebrisPosition debrisPos = DebrisPosition.South;
+
+    private bool isDamaged;
     private int spriteIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        //InitBuildingDebris((int)DebrisPosition.North, false);
+        //InitBuildingDebris((int)DebrisPosition.South, false);
+        //InitBuildingDebris((int)DebrisPosition.West, false);
+        //InitBuildingDebris((int)DebrisPosition.East, false);
+        
+        isDamaged = false;
         UpdateBuildingState();
+        if (enableRandomDamage)
+        {
+            InitBuildingDebris((int)debrisPos, true);
+            isDamaged = true;
+            UpdateBuildingState();
+            //StartCoroutine(ScheduleBuildingStateChange());
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if MouseClick occurred while hovering
+        // Check if MouseClick occurred while hovering to repair the building on click
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -30,13 +51,32 @@ public class Building : MonoBehaviour
             {
                 isDamaged = false;
                 UpdateBuildingState();
+                // schedule next damage
+                isDamaged = true;
+                StartCoroutine(ScheduleBuildingStateChange());
             }
         }
+
     }
 
     void UpdateBuildingState()
     {
         spriteIndex = isDamaged ? 1 : 0;
         transform.GetComponent<SpriteRenderer>().sprite = buildingSprites[spriteIndex];
+        transform.GetChild((int)debrisPos).transform.GetComponent<SpriteRenderer>().enabled = isDamaged;
+        transform.GetChild((int)debrisPos).transform.GetComponent<BoxCollider2D>().enabled = isDamaged;
+    }
+    
+    void InitBuildingDebris(int position, bool state)
+    {
+        transform.GetChild(position).gameObject.SetActive(state);
+        transform.GetChild(position).transform.GetComponent<SpriteRenderer>().enabled = state;
+        transform.GetChild(position).transform.GetComponent<BoxCollider2D>().enabled = state;
+    }
+
+    IEnumerator ScheduleBuildingStateChange()
+    {
+        yield return new WaitForSeconds(Random.Range(minTimeNextDamage, maxTimeNextDamage));
+        UpdateBuildingState();
     }
 }
