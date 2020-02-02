@@ -2302,11 +2302,6 @@ PrefabInstance:
       propertyPath: trafficLightForPositionReference
       value: 
       objectReference: {fileID: 857635711}
-    - target: {fileID: 4846640111532990559, guid: 800808497ea116349bdccabc72eff471,
-        type: 3}
-      propertyPath: numberOfCars
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800808497ea116349bdccabc72eff471, type: 3}
 --- !u!1 &1837617637
