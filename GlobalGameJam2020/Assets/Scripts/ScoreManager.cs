@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -15,9 +16,11 @@ public class ScoreManager : MonoBehaviour
     
     [Header("Score - for debug purposes")]
     public float globalScore = 1.0f;
+    public float elapsedTimeInLevel;
 
     private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
-    private float elapsedTimeInLevel;
+    private bool theEnd;
+    private float theEndSplashScreenSec = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +32,15 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         elapsedTimeInLevel += Time.deltaTime;
+
+        if (theEnd)
+        {
+            return;
+        }
+
         if(elapsedTimeInLevel > levelLengthInSec)
         {
+            theEnd = true;
             CheckLevelSuccess();
         }
 
@@ -80,13 +90,41 @@ public class ScoreManager : MonoBehaviour
 
     private void CheckLevelSuccess()
     {
-        if(globalScore > minScoreToSucceed)
+        GameObject splashScreenObj = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(2).gameObject;
+        splashScreenObj.SetActive(true);
+        if (globalScore > minScoreToSucceed)
         {
             Debug.Log("Greetings to User and Load Next Level");
+            StartCoroutine(LoadNextLevel());
         }
         else
         {
+            //Thumbs Down
+            splashScreenObj.transform.Rotate(new Vector3(0, 0, 1), 180f);
             Debug.Log("Better Luck Next Time and Reload Level");
+            StartCoroutine(ReloadLevel());
         }
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(theEndSplashScreenSec);
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        // Remember: Zero based count
+        if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextLevelIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(theEndSplashScreenSec);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

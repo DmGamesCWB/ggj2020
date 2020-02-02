@@ -10,6 +10,8 @@ TagManager:
   - roadBlock
   - ScoreCar
   - roadDamage
+  - theEnd
+  - Canvas
   layers:
   - Default
   - TransparentFX
