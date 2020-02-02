@@ -85,6 +85,7 @@ public class Road : MonoBehaviour
             isRoadDamaged = false;
             isRoadBlocked = false;
             toRepair = true;
+            Debug.Log("REPAIR TRUE");
         }
         ApplyRoadState();
     }
@@ -108,6 +109,7 @@ public class Road : MonoBehaviour
         //Debug.Log(gameObject.name + " - Next state change will take " + randomTime);
         if (toRepair)
         {
+            Debug.Log("REPAIR TRUE PLAY");
             AudioManager.instance.PlayFxSound(Sound.SoundTypes.RepairingLong);
             toRepair = false;
         }

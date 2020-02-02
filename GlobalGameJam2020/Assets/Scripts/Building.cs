@@ -64,6 +64,10 @@ public class Building : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().sprite = buildingSprites[spriteIndex];
         transform.GetChild((int)debrisPos).transform.GetComponent<SpriteRenderer>().enabled = isDamaged;
         transform.GetChild((int)debrisPos).transform.GetComponent<BoxCollider2D>().enabled = isDamaged;
+        if (isDamaged)
+        {
+            AudioManager.instance.PlayFxSound(Sound.SoundTypes.Poop);
+        }
     }
     
     void InitBuildingDebris(int position, bool state)

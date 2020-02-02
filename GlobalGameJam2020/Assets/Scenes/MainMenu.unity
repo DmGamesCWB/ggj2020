@@ -1734,14 +1734,14 @@ MonoBehaviour:
   - name: 10
     clip: {fileID: 8300000, guid: 57f3092285388d741bc48998a48f25c2, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.177
+    volume: 0.226
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 11
     clip: {fileID: 8300000, guid: a3546ff5619c0ae44a3ea9e43ddbe649, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.206
+    volume: 0.245
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1763,6 +1763,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 22ab90d15c5877f4b8dec881ebff2c1a, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0.127
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 14
+    clip: {fileID: 8300000, guid: 752558169ab6fbe489cb9380f0558fae, type: 3}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0.225
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -19,7 +19,8 @@ public class Sound
         RepairingShort,
         RepairingLong,
         Boo,
-        Applause
+        Applause,
+        Poop
     }
 
     public SoundTypes name;
