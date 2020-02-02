@@ -5,27 +5,35 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Dictionary<int, float> scoreDict = new Dictionary<int, float>();
-
+    [Header("Icon Settings")]
     public Sprite[] driverEmojis;
-
-    public float globalScore = 0.0f;
-
     public GameObject scoreIcon;
+
+    [Header("Level Settings")]
+    public float levelLengthInSec = 60.0f;
+    public float minScoreToSucceed = 0.5f;
+    
+    [Header("Score - for debug purposes")]
+    public float globalScore = 1.0f;
+
+    private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
+    private float elapsedTimeInLevel;
 
     // Start is called before the first frame update
     void Start()
     {
+        elapsedTimeInLevel = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fillScore();
-    }
+        elapsedTimeInLevel += Time.deltaTime;
+        if(elapsedTimeInLevel > levelLengthInSec)
+        {
+            CheckLevelSuccess();
+        }
 
-    private void fillScore()
-    {
         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("ScoreCar");
         foreach (GameObject car in allObjects)
         {
@@ -51,22 +59,34 @@ public class ScoreManager : MonoBehaviour
 
     private void CalcAverageScore()
     {
-        globalScore = 0;
+        float totalSumScore = 0;
         foreach (float carScore in scoreDict.Values)
         {
-            globalScore += carScore;
+            totalSumScore += carScore;
         }
-        int count = scoreDict.Count;
-        if (count > 0) { 
-            globalScore = globalScore / count;
+        int cars = scoreDict.Count;
+        if (cars > 0) { 
+            globalScore = totalSumScore / cars;
             //Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
             //Debug.Log("Index:" + getEmojiIndex());
-            scoreIcon.GetComponent<Image>().sprite = driverEmojis[getEmojiIndex()];
+            scoreIcon.GetComponent<Image>().sprite = driverEmojis[GetEmojiIndex()];
         }
     }
 
-    private int getEmojiIndex()
+    private int GetEmojiIndex()
     {
        return (driverEmojis.Length - (int)Mathf.Round(globalScore * driverEmojis.Length));
+    }
+
+    private void CheckLevelSuccess()
+    {
+        if(globalScore > minScoreToSucceed)
+        {
+            Debug.Log("Greetings to User and Load Next Level");
+        }
+        else
+        {
+            Debug.Log("Better Luck Next Time and Reload Level");
+        }
     }
 }
