@@ -30,6 +30,7 @@ public class KeepDistance : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("Saiu da área do carro o " + other.name);
         if (other.CompareTag("Car") || other.CompareTag("roadBlock"))
         {
             float acc = GetComponentInParent<Car>().acceleration;

@@ -203,9 +203,6 @@ MonoBehaviour:
   startSpriteIndex: 0
   minTime: 1
   maxTime: 3
-  roadSprites:
-  - {fileID: 21300000, guid: 42174c2f573748a41ba86db5eb453571, type: 3}
-  - {fileID: 21300000, guid: b98baa6d66e885942a0744dc20a65c79, type: 3}
   enableRandomDamage: 1
 --- !u!1 &9143206371492230781
 GameObject:
@@ -311,5 +308,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

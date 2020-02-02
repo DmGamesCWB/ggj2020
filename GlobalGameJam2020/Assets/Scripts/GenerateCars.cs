@@ -74,14 +74,14 @@ public class GenerateCars : MonoBehaviour
             xPosition = trafficLightForPositionReference.transform.position.x;
             yPosition = GetComponent<BoxCollider2D>().transform.position.y;
             rotation = -180;
-            Debug.Log("Entered VTrafficLight " + xPosition + ":" + yPosition);
+            //Debug.Log("Entered VTrafficLight " + xPosition + ":" + yPosition);
         } 
         else
         {
             xPosition = GetComponent<BoxCollider2D>().transform.position.x;
             yPosition = trafficLightForPositionReference.transform.position.y;
             rotation = -90;
-            Debug.Log("Entered HTrafficLight " + xPosition + ":" + yPosition);
+            //Debug.Log("Entered HTrafficLight " + xPosition + ":" + yPosition);
         }
         
         GameObject _car = Instantiate(car, new Vector3(xPosition, yPosition, 0), Quaternion.Euler(new Vector3(0, 0, rotation)));

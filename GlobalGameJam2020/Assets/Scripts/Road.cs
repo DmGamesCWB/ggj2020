@@ -44,7 +44,6 @@ public class Road : MonoBehaviour
             // If a gameObject collides with the Raycast in MousePosition
             if ((hit.collider.transform.GetInstanceID() == transform.GetChild(0).GetInstanceID()))                
             {
-                Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
                 // Start road repair
                 SetNextRoadState();
                 ApplyNextRoadState();
@@ -82,10 +81,10 @@ public class Road : MonoBehaviour
         // Either road damage or road block should be 
         //Debug.Log(gameObject.name + " Applying state");
         transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
-        transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
-        transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
+        //transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
+        //transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
 
-        transform.GetChild(1).gameObject.SetActive(isRoadBlocked);
+        //transform.GetChild(1).gameObject.SetActive(isRoadBlocked);
         transform.GetChild(1).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
         transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
     }

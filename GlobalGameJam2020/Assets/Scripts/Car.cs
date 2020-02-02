@@ -35,26 +35,17 @@ public class Car : MonoBehaviour
     void Update()
     {
         // If car is broken, it can not accelerate
-        if (isBroken)
+        if (isBroken && Input.GetMouseButtonDown(0))
         {
-            if (acceleration > 0)
-            {
-                acceleration = -acceleration;
-            }
-            
-            // Check if click on car do repair
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
-                // If a gameObject collides with the Raycast in MousePosition
-                if (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID())
-                {
-                    FixCar();
-                }
+            // If a gameObject collides with the Raycast in MousePosition
+            if (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID())
+            {
+                FixCar();
             }
         }
 
@@ -104,10 +95,14 @@ public class Car : MonoBehaviour
         }
         DestroyOutOfBounds();
     }
-
+    
     public void BreakCar()
     {
         isBroken = true;
+        if (acceleration > 0)
+        {
+            acceleration = -acceleration;
+        }
         transform.GetChild(3).gameObject.SetActive(true);
     }
 
