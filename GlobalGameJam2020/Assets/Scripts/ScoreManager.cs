@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("ScoreCar");
         foreach (GameObject car in allObjects)
         {
-            Debug.Log("ADD Score:" + car.GetInstanceID());
+            //Debug.Log("ADD Score:" + car.GetInstanceID());
             AddScore(car.GetInstanceID(), car.GetComponent<Car>().score);
         }
         CalcAverageScore();
@@ -39,12 +39,12 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreDict.ContainsKey(id))
         {
-            Debug.Log("Contains Key. Update:" + id + "-->" + value);
+            //Debug.Log("Contains Key. Update:" + id + "-->" + value);
             scoreDict[id] = value;
         }
         else
         {
-            Debug.Log("NOT Contains Key. ADD:" + id + "-->" + value);
+            //Debug.Log("NOT Contains Key. ADD:" + id + "-->" + value);
             scoreDict.Add(id, value);
         }
     }
@@ -59,8 +59,8 @@ public class ScoreManager : MonoBehaviour
         int count = scoreDict.Count;
         if (count > 0) { 
             globalScore = globalScore / count;
-            Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
-            Debug.Log("Index:" + getEmojiIndex());
+            //Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
+            //Debug.Log("Index:" + getEmojiIndex());
             scoreIcon.GetComponent<Image>().sprite = driverEmojis[getEmojiIndex()];
         }
     }

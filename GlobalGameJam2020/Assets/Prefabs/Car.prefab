@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2318751053985375659}
   - component: {fileID: 797288985277265660}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EmojiDriver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
