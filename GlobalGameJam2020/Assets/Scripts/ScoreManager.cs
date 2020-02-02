@@ -98,7 +98,7 @@ public class ScoreManager : MonoBehaviour
         progress *= 4;
         progressIndex = Mathf.CeilToInt(progress)-1;
         GameObject progressObj = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(3).gameObject;
-        progressObj.GetComponent<SpriteRenderer>().sprite = progressEmojis[progressIndex];
+        progressObj.GetComponent<Image>().sprite = progressEmojis[progressIndex];
     }
 
     private void CheckLevelSuccess()
