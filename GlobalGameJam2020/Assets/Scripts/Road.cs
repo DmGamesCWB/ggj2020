@@ -35,15 +35,16 @@ public class Road : MonoBehaviour
         // Check if MouseClick occurred while hovering a non-broken road with random road blocks enabled
         if (enableRandomRoadBlock && currentSpriteIndex != 0 && Input.GetMouseButtonDown(0))
         {
-            Debug.Log(gameObject.name + " - Road got clicked");
+            
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
+            //Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
             // If a gameObject collides with the Raycast in MousePosition
             if (hit.collider.gameObject.name == this.name)                
             {
+                //Debug.Log(hit.collider.gameObject.name + " / " + gameObject.name + " - Road got clicked");
                 // Start road repair
                 SetNextRoadState();
                 ApplyNextRoadState();
