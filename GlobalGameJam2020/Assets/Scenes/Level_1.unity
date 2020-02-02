@@ -1715,7 +1715,7 @@ PrefabInstance:
     - target: {fileID: 566851483044312246, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
         type: 3}
       propertyPath: minScoreToSucceed
-      value: 0.9
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 566851483044312247, guid: d9fd60d5285ac1f48bebaeb453abfcc0,
         type: 3}

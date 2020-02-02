@@ -19,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     public float elapsedTimeInLevel;
     public float progress;
     public int progressIndex;
+    public float scoreEmojiIndex;
 
     private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
     private bool theEnd;
@@ -83,13 +84,42 @@ public class ScoreManager : MonoBehaviour
             //Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
             //Debug.Log("Index:" + getEmojiIndex());
             GameObject scoreIcon = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).gameObject;
+            scoreEmojiIndex = GetEmojiIndex();
             scoreIcon.GetComponent<Image>().sprite = driverEmojis[GetEmojiIndex()];
         }
     }
 
     private int GetEmojiIndex()
     {
-       return (driverEmojis.Length - (int)Mathf.Round(globalScore * driverEmojis.Length));
+        // Check the global score when compared to the minScoreToSucceed
+        if(globalScore > minScoreToSucceed)
+        {
+            float stepSuccess = (1 - minScoreToSucceed) / 3;
+            if (globalScore <= (minScoreToSucceed + stepSuccess))
+            {
+                return 2;
+            }else if(globalScore > (minScoreToSucceed + stepSuccess) && globalScore <= (minScoreToSucceed + 2 * stepSuccess))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            if(globalScore >= (minScoreToSucceed*0.75f))
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
+
+        //return (driverEmojis.Length - (int)Mathf.Round(globalScore * driverEmojis.Length));
     }
 
     private void UpdateLevelProgress()
