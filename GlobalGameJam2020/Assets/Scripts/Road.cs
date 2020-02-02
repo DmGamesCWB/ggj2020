@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    public int startSpriteIndex = 0;
     public float minTimeNextDamage = 10.0f, maxTimeNextDamage = 20.0f;
     public float timeToRepair = 10.0f;
     public bool enableRandomDamage = true;
@@ -23,6 +22,8 @@ public class Road : MonoBehaviour
         ApplyRoadState();
         if (enableRandomDamage)
         {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
             // Schedule first state change
             StartCoroutine(ApplyNextRoadStateWithinRandomTime());
         }
@@ -90,13 +91,13 @@ public class Road : MonoBehaviour
     {
         // Either road damage or road block should be 
         //Debug.Log(gameObject.name + " Applying state");
-        //transform.GetChild(0).gameObject.SetActive(isRoadDamaged);
-        transform.GetChild(0).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
-        transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
+        GameObject hole = transform.GetChild(0).gameObject;
+        hole.transform.GetComponent<SpriteRenderer>().enabled = isRoadDamaged;
+        hole.GetComponent<BoxCollider2D>().enabled = isRoadDamaged;
 
-        //transform.GetChild(1).gameObject.SetActive(isRoadBlocked);
-        transform.GetChild(1).gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
-        transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
+        GameObject roadBlock = transform.GetChild(1).gameObject;
+        roadBlock.gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
+        roadBlock.gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
     }
 
     IEnumerator ApplyNextRoadStateWithinRandomTime()
