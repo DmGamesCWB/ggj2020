@@ -1682,7 +1682,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: 1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0b52b588384842a43baf59cbf614ef4e, type: 3}
     group: {fileID: 243245014775476166, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0.416
     pitch: 1
