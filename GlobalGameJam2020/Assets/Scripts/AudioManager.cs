@@ -90,7 +90,21 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound:" + name + " not found!");
             return;
         }
-        s.source.Play();
+        Debug.Log("Play SOUND");
+        s.source.PlayOneShot(s.source.clip);
+    }
+
+    public void StopAllFxSound()
+    {
+        foreach(Sound s in FXSounds)
+        {
+            if (s == null)
+            {
+                Debug.LogWarning("Sound:" + name + " not found!");
+                //return;
+            }
+            s.source.Stop();
+        }
     }
 
 

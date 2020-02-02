@@ -25,10 +25,14 @@ public class Car : MonoBehaviour
     public float bottonOffset = 50f;
     public float rightOffset = 120f;
 
+    private bool changed = false;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 0;
+
+        //StartCoroutine(PlayFxSounds());
     }
 
     // Update is called once per frame
@@ -83,6 +87,7 @@ public class Car : MonoBehaviour
             score = Mathf.Max(0, score - (1.0f / driverEmojis.Length));
             driverEmojiIndex = Mathf.Min(driverEmojiIndex + 1, driverEmojis.Length - 1);
             timeStopped = 0;
+            changed = true;
         }
         if(timeMoving > secondsMovingToUpgrade)
         {
@@ -93,6 +98,13 @@ public class Car : MonoBehaviour
 
         // Update Driver Emoji
         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
+
+        if (changed)
+        {
+            Debug.Log("CHANGED. PLAY EMOJI");
+            PlayEmojiSound();
+            changed = false;
+        }
 
         // Actually moves the car
         if (isHorizontal)
@@ -132,6 +144,44 @@ public class Car : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
     }
+
+    private void PlayEmojiSound()
+    {
+        switch (driverEmojiIndex)
+        {
+            case 0:
+                //Happy
+                break;
+            case 1:
+                //neutral
+                break;
+            case 2:
+                //sad
+                Debug.Log("Play SAD");
+                AudioManager.instance.PlayFxSound(Sound.SoundTypes.CarHonkSad);
+                break;
+            case 3:
+                //angry
+                Debug.Log("Play ANGRY");
+                AudioManager.instance.PlayFxSound(Sound.SoundTypes.CarHonkAngry);
+                break;
+            case 4:
+                //cursing
+                Debug.Log("Play CURSING");
+                AudioManager.instance.PlayFxSound(Sound.SoundTypes.Cursing);
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    private IEnumerator PlayFxSounds()
+    {
+        yield return new WaitForSeconds(05);
+        PlayEmojiSound();
+    }
+
+
 }
