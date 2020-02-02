@@ -46,7 +46,7 @@ public class Building : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             // If a gameObject collides with the Raycast in MousePosition
-            if (hit.collider.gameObject.name == this.name)
+            if ((hit.collider) && (hit.collider.gameObject.name == this.name))
             {
                 isDamaged = false;
                 UpdateBuildingState();

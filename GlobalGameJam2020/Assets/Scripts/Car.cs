@@ -51,7 +51,7 @@ public class Car : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
                 // If a gameObject collides with the Raycast in MousePosition
-                if (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID())
+                if ((hit.collider) && (hit.collider.transform.GetInstanceID() == transform.GetChild(2).GetInstanceID()))
                 {
                     FixCar();
                 }

@@ -42,7 +42,7 @@ public class Road : MonoBehaviour
             //Debug.Log(hit.collider.transform.name + " / " + transform.GetChild(0).name + " - Road got clicked");
             //Debug.Log(hit.collider.transform.GetInstanceID() + " / " + transform.GetChild(0).GetInstanceID() + " - Road got clicked");
             // If a gameObject collides with the Raycast in MousePosition
-            if ((hit.collider.transform.GetInstanceID() == transform.GetChild(0).GetInstanceID()))                
+            if (((hit.collider) && (hit.collider.transform.GetInstanceID() == transform.GetChild(0).GetInstanceID())))
             {
                 // Start road repair
                 SetNextRoadState();
