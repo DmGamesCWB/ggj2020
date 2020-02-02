@@ -7,7 +7,12 @@ public class Sound
     public enum SoundTypes
     {
         MainTheme,
-        CreditsTheme
+        CreditsTheme,
+        CarHonkSad,
+        CarHonkAngry,
+        BikeHorn,
+        TrafficJam1,
+        TrafficJam
     }
 
     public SoundTypes name;

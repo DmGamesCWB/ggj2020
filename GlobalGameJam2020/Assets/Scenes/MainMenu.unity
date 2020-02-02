@@ -1775,7 +1775,14 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   FXSounds:
-  - name: 0
+  - name: 2
+    clip: {fileID: 0}
+    group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: 3
     clip: {fileID: 0}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0
