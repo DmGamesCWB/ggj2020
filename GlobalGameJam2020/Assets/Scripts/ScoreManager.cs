@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     public int progressIndex;
     public float scoreEmojiIndex;
 
-    private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
+    //private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
     private bool theEnd;
     private float theEndSplashScreenSec = 5.0f;
 
@@ -47,18 +47,19 @@ public class ScoreManager : MonoBehaviour
             theEnd = true;
             CheckLevelSuccess();
         }
-
+        /*
         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("ScoreCar");
         foreach (GameObject car in allObjects)
         {
             //Debug.Log("ADD Score:" + car.GetInstanceID());
             AddScore(car.GetInstanceID(), car.GetComponent<Car>().score);
-        }
+        }*/
         CalcAverageScore();
     }
 
     public void AddScore(int id, float value)
     {
+        /*
         if (scoreDict.ContainsKey(id))
         {
             //Debug.Log("Contains Key. Update:" + id + "-->" + value);
@@ -68,17 +69,25 @@ public class ScoreManager : MonoBehaviour
         {
             //Debug.Log("NOT Contains Key. ADD:" + id + "-->" + value);
             scoreDict.Add(id, value);
-        }
+        }*/
     }
 
     private void CalcAverageScore()
     {
         float totalSumScore = 0;
+        GameObject[] allObjects = GameObject.FindGameObjectsWithTag("ScoreCar");
+        foreach (GameObject car in allObjects)
+        {
+            totalSumScore += car.GetComponent<Car>().score;
+        }
+        /*
         foreach (float carScore in scoreDict.Values)
         {
             totalSumScore += carScore;
         }
-        int cars = scoreDict.Count;
+        int cars = scoreDict.Count;*/
+
+        int cars = allObjects.Length;
         if (cars > 0) { 
             globalScore = totalSumScore / cars;
             //Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
