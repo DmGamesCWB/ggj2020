@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGSounds:
   - name: 0
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 8aa758f1308b7e04e96ac492dc62f708, type: 3}
     group: {fileID: 243245014775476166, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
     volume: 0.382
     pitch: 1
