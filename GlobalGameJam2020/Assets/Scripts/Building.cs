@@ -29,8 +29,7 @@ public class Building : MonoBehaviour
         {
             InitBuildingDebris((int)debrisPos, true);
             isDamaged = true;
-            UpdateBuildingState();
-            //StartCoroutine(ScheduleBuildingStateChange());
+            StartCoroutine(ScheduleBuildingStateChange());
         }
 
     }
@@ -70,8 +69,8 @@ public class Building : MonoBehaviour
     void InitBuildingDebris(int position, bool state)
     {
         transform.GetChild(position).gameObject.SetActive(state);
-        transform.GetChild(position).transform.GetComponent<SpriteRenderer>().enabled = state;
-        transform.GetChild(position).transform.GetComponent<BoxCollider2D>().enabled = state;
+        transform.GetChild(position).transform.GetComponent<SpriteRenderer>().enabled = false;
+        transform.GetChild(position).transform.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     IEnumerator ScheduleBuildingStateChange()

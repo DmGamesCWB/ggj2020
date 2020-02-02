@@ -309,9 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756fd854a8f1d7347b4c067dd92bf501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeNextDamage: 10
-  maxTimeNextDamage: 20
-  timeToRepair: 10
+  minTimeNextDamage: 9
+  maxTimeNextDamage: 12
+  timeToRepair: 0
   enableRandomDamage: 0
   buildingSprites:
   - {fileID: 21300000, guid: f144cec225f370e46929143af98627be, type: 3}

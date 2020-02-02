@@ -545,6 +545,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184161545}
     m_Modifications:
+    - target: {fileID: 4371823201909264858, guid: ed4a438321375ec419fdc143d030374c,
+        type: 3}
+      propertyPath: enableRandomDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371823201909264858, guid: ed4a438321375ec419fdc143d030374c,
+        type: 3}
+      propertyPath: debrisPos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6297849255368179870, guid: ed4a438321375ec419fdc143d030374c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1451,7 +1461,7 @@ PrefabInstance:
     - target: {fileID: 3981464390014530407, guid: f3d2d002e9afc3b4fbf03973f952d409,
         type: 3}
       propertyPath: enableRandomDamage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d2d002e9afc3b4fbf03973f952d409, type: 3}
@@ -2367,7 +2377,7 @@ PrefabInstance:
     - target: {fileID: 3981464390014530407, guid: f3d2d002e9afc3b4fbf03973f952d409,
         type: 3}
       propertyPath: enableRandomDamage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8687133407381333525, guid: f3d2d002e9afc3b4fbf03973f952d409,
         type: 3}
@@ -2608,6 +2618,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184161545}
     m_Modifications:
+    - target: {fileID: 4371823201909264858, guid: ed4a438321375ec419fdc143d030374c,
+        type: 3}
+      propertyPath: enableRandomDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6297849255368179870, guid: ed4a438321375ec419fdc143d030374c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2763,6 +2778,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184161545}
     m_Modifications:
+    - target: {fileID: 114899856714985214, guid: 551dcf9053a8f67479d8dedef2d0005f,
+        type: 3}
+      propertyPath: enableRandomDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4760357887546819331, guid: 551dcf9053a8f67479d8dedef2d0005f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2913,6 +2933,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184161545}
     m_Modifications:
+    - target: {fileID: 4371823201909264858, guid: ed4a438321375ec419fdc143d030374c,
+        type: 3}
+      propertyPath: enableRandomDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6297849255368179870, guid: ed4a438321375ec419fdc143d030374c,
         type: 3}
       propertyPath: m_LocalPosition.x
