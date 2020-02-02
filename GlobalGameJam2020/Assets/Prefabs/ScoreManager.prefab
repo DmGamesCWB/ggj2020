@@ -49,3 +49,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29e12b56dc93d924b955c250586f54e8, type: 3}
   - {fileID: 21300000, guid: 75ffb3c5735bbdc46905cb5959361395, type: 3}
   - {fileID: 21300000, guid: dc847f9af25c74e408cce2febee68484, type: 3}
+  scoreIcon: {fileID: 0}
+  progressEmojis:
+  - {fileID: 21300000, guid: 1f4814dba48dcad4c802190ea208608e, type: 3}
+  - {fileID: 21300000, guid: 8057588db218e8f4bbce258a6e8751e0, type: 3}
+  - {fileID: 21300000, guid: 4244383a56f8aae44816780c0c6dfbc9, type: 3}
+  - {fileID: 21300000, guid: 2b68fb3510efd4442b36426f0a925257, type: 3}
+  - {fileID: 21300000, guid: ae0102cf880fff24cb0e319691c69f13, type: 3}
+  levelLengthInSec: 60
+  minScoreToSucceed: 0.5
+  globalScore: 0
+  elapsedTimeInLevel: 0
+  progress: 0
+  progressIndex: 0

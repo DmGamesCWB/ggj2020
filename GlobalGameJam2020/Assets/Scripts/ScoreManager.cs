@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 {
     [Header("Icon Settings")]
     public Sprite[] driverEmojis;
-    public GameObject scoreIcon;
+    public Sprite[] progressEmojis;
 
     [Header("Level Settings")]
     public float levelLengthInSec = 60.0f;
@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour
     [Header("Score - for debug purposes")]
     public float globalScore = 1.0f;
     public float elapsedTimeInLevel;
+    public float progress;
+    public int progressIndex;
 
     private Dictionary<int, float> scoreDict = new Dictionary<int, float>();
     private bool theEnd;
@@ -32,6 +34,7 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         elapsedTimeInLevel += Time.deltaTime;
+        UpdateLevelProgress();
 
         if (theEnd)
         {
@@ -79,6 +82,7 @@ public class ScoreManager : MonoBehaviour
             globalScore = totalSumScore / cars;
             //Debug.Log("Average:" + globalScore + "Size:" + scoreDict.Count);
             //Debug.Log("Index:" + getEmojiIndex());
+            GameObject scoreIcon = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).gameObject;
             scoreIcon.GetComponent<Image>().sprite = driverEmojis[GetEmojiIndex()];
         }
     }
@@ -86,6 +90,15 @@ public class ScoreManager : MonoBehaviour
     private int GetEmojiIndex()
     {
        return (driverEmojis.Length - (int)Mathf.Round(globalScore * driverEmojis.Length));
+    }
+
+    private void UpdateLevelProgress()
+    {
+        progress = elapsedTimeInLevel / levelLengthInSec;
+        progress *= 4;
+        progressIndex = Mathf.CeilToInt(progress)-1;
+        GameObject progressObj = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(3).gameObject;
+        progressObj.GetComponent<SpriteRenderer>().sprite = progressEmojis[progressIndex];
     }
 
     private void CheckLevelSuccess()
@@ -108,27 +121,29 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
-        yield return new WaitForSeconds(theEndSplashScreenSec);
         int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
         // Remember: Zero based count
         if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextLevelIndex);
             AudioManager.instance.PlayFxSound(Sound.SoundTypes.Applause);
+            yield return new WaitForSeconds(theEndSplashScreenSec);
+            AudioManager.instance.StopAllFxSound();
+            SceneManager.LoadScene(nextLevelIndex);
         }
         else
         {
+            // Should not get in here because the Credits Level is the last in Scene Managers
+            yield return new WaitForSeconds(theEndSplashScreenSec);
+            AudioManager.instance.StopAllFxSound();
             SceneManager.LoadScene("MainMenu");
         }
-        AudioManager.instance.StopAllFxSound();
     }
 
     IEnumerator ReloadLevel()
     {
         AudioManager.instance.PlayFxSound(Sound.SoundTypes.Boo);
         yield return new WaitForSeconds(theEndSplashScreenSec);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         AudioManager.instance.StopAllFxSound();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
