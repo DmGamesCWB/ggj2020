@@ -1827,7 +1827,7 @@ MonoBehaviour:
   - name: 11
     clip: {fileID: 8300000, guid: a3546ff5619c0ae44a3ea9e43ddbe649, type: 3}
     group: {fileID: 243974625672037004, guid: 7e88501c50e70e64badeb8032cce93cb, type: 2}
-    volume: 0.167
+    volume: 0.206
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -2064,7 +2064,7 @@ Canvas:
   m_GameObject: {fileID: 942939572}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3465,7 +3465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 95, y: 0.000030518}
+  m_AnchoredPosition: {x: 95, y: 0.000030517578}
   m_SizeDelta: {x: -190, y: -38.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664293779

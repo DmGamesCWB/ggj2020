@@ -11,6 +11,7 @@ public class Road : MonoBehaviour
     private float elapsedHealingTime;
     private bool isRoadDamaged;
     private bool isRoadBlocked;
+    private bool toRepair = false;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +84,7 @@ public class Road : MonoBehaviour
             //Debug.Log(gameObject.name + " - Next state is good");
             isRoadDamaged = false;
             isRoadBlocked = false;
+            toRepair = true;
         }
         ApplyRoadState();
     }
@@ -98,11 +100,17 @@ public class Road : MonoBehaviour
         GameObject roadBlock = transform.GetChild(1).gameObject;
         roadBlock.gameObject.transform.GetComponent<SpriteRenderer>().enabled = isRoadBlocked;
         roadBlock.gameObject.GetComponent<BoxCollider2D>().enabled = isRoadBlocked;
+
     }
 
     IEnumerator ApplyNextRoadStateWithinRandomTime()
     {
         //Debug.Log(gameObject.name + " - Next state change will take " + randomTime);
+        if (toRepair)
+        {
+            AudioManager.instance.PlayFxSound(Sound.SoundTypes.RepairingLong);
+            toRepair = false;
+        }
         yield return new WaitForSeconds(Random.Range(minTimeNextDamage, maxTimeNextDamage));
         SetNextRoadState();
     }

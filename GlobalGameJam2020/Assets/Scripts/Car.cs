@@ -31,8 +31,6 @@ public class Car : MonoBehaviour
     void Start()
     {
         speed = 0;
-
-        //StartCoroutine(PlayFxSounds());
     }
 
     // Update is called once per frame
@@ -133,6 +131,7 @@ public class Car : MonoBehaviour
             acceleration = -acceleration;
         }
         transform.GetChild(3).gameObject.SetActive(false);
+        AudioManager.instance.PlayFxSound(Sound.SoundTypes.HammeringShort);
     }
 
     private void DestroyOutOfBounds()
@@ -176,12 +175,5 @@ public class Car : MonoBehaviour
 
         }
     }
-
-    private IEnumerator PlayFxSounds()
-    {
-        yield return new WaitForSeconds(05);
-        PlayEmojiSound();
-    }
-
 
 }
