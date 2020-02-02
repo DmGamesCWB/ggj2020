@@ -10,6 +10,8 @@ public class Car : MonoBehaviour
     
     public bool isHorizontal = true;
 
+    public bool isBroken = false;
+
     private float speed;
 
     public float score = 1.0f;
@@ -32,6 +34,12 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If car is broken, it can not accelerate
+        if (isBroken && acceleration > 0)
+        {
+            acceleration = -acceleration;
+        }
+
         float prevSpeed = speed;
         speed += acceleration;
         speed = Mathf.Min(speed , maxSpeed);
@@ -46,7 +54,8 @@ public class Car : MonoBehaviour
         if (prevSpeed > 0 && speed > 0)
         {
             timeMoving += Time.deltaTime;
-            timeStopped = 0;
+            // timeStopped does not come to zero right after you start moving...
+            timeStopped = Mathf.Max(0, timeStopped - Time.deltaTime);
         }
         
         // Check If stopped/moved for time enough to change score
@@ -64,13 +73,8 @@ public class Car : MonoBehaviour
         }
 
         // Update Driver Emoji
-        foreach (Transform child in transform)
-        {
-            if (child.GetComponent<SpriteRenderer>())
-            {
-                child.GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
-            }
-        }
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = driverEmojis[driverEmojiIndex];
+
         // Actually moves the car
         if (isHorizontal)
         {
@@ -80,10 +84,22 @@ public class Car : MonoBehaviour
         {
             this.transform.position += new Vector3(0, -speed*Time.deltaTime, 0);
         }
-        destroyOutOfBounds();
+        DestroyOutOfBounds();
     }
 
-    private void destroyOutOfBounds()
+    public void BreakCar()
+    {
+        isBroken = true;
+        transform.GetChild(3).gameObject.SetActive(true);
+    }
+
+    public void FixCar()
+    {
+        isBroken = false;
+        transform.GetChild(3).gameObject.SetActive(false);
+    }
+
+    private void DestroyOutOfBounds()
     {
         Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector3 carPos = transform.position;
