@@ -32,7 +32,7 @@ public class Car : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         // If car is broken, it can not accelerate
         if (isBroken)

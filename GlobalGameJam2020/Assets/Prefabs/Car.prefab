@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 15
-  acceleration: 0.2
+  acceleration: 0.3
   isHorizontal: 1
   isBroken: 0
   score: 1
